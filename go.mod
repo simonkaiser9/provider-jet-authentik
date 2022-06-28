@@ -1,4 +1,4 @@
-module github.com/crossplane-contrib/provider-jet-template
+module github.com/simonkaiser9/provider-jet-authentik
 
 go 1.17
 

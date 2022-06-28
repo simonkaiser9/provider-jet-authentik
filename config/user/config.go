@@ -13,16 +13,16 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+package user
 
-package null
+import "github.com/crossplane/terrajet/pkg/config"
 
-import (
-	tjconfig "github.com/crossplane/terrajet/pkg/config"
-)
+// Configure configures individual resources by adding custom ResourceConfigurators.
+func Configure(p *config.Provider) {
+	p.AddResourceConfigurator("authentik_user", func(r *config.Resource) {
 
-// Configure configures the null group
-func Configure(p *tjconfig.Provider) {
-	p.AddResourceConfigurator("null_resource", func(r *tjconfig.Resource) {
-		r.ExternalName = tjconfig.IdentifierFromProvider
+		// we need to override the default group that terrajet generated for
+		// this resource, which would be "github"
+		r.ShortGroup = "user"
 	})
 }
