@@ -1,0 +1,25 @@
+apiVersion: user.authentik.jet.crossplane.io/v1alpha1
+kind: User
+metadata:
+  name: test1
+spec:
+  forProvider:
+    username: "test1"
+    name: "Test1"
+    email: "test1@test.de"
+    #is_active: true
+  providerConfigRef:
+    name: default
+---
+apiVersion: user.authentik.jet.crossplane.io/v1alpha1
+kind: User
+metadata:
+  name: test2
+spec:
+  forProvider:
+    username: "test2"
+    name: "Test2"
+    email: "test2@test.de"
+    #is_active: true
+  providerConfigRef:
+    name: default

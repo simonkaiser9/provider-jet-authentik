@@ -38,10 +38,10 @@ import (
 
 	"github.com/simonkaiser9/provider-jet-authentik/apis"
 	"github.com/simonkaiser9/provider-jet-authentik/apis/v1alpha1"
-	"github.com/simonkaiser9/provider-jet-authentikg"
-	"github.com/simonkaiser9/provider-jet-authentiknal/clients"
-	"github.com/simonkaiser9/provider-jet-authentikntroller"
-	"github.com/simonkaiser9/provider-jet-authentikatures"
+	"github.com/simonkaiser9/provider-jet-authentik/config"
+	"github.com/simonkaiser9/provider-jet-authentik/internal/clients"
+	"github.com/simonkaiser9/provider-jet-authentik/internal/controller"
+	"github.com/simonkaiser9/provider-jet-authentik/internal/features"
 )
 
 func main() {

@@ -12,7 +12,6 @@ export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-authentik
 export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://github.com/goauthentik/terraform-provider-authentik/releases/tag/v2022.6.3
 export TERRAFORM_NATIVE_PROVIDER_BINARY := terraform-provider-authentik_2022.6.3
 
-
 PLATFORMS ?= linux_amd64 linux_arm64
 
 # -include will silently skip missing files, which allows us

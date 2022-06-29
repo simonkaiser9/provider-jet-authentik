@@ -31,15 +31,17 @@ import (
 )
 
 const (
+	keyBaseURL = "url"
+	keyToken   = "token"
+)
+
+const (
 	// error messages
 	errNoProviderConfig     = "no providerConfigRef provided"
 	errGetProviderConfig    = "cannot get referenced ProviderConfig"
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
 	errUnmarshalCredentials = "cannot unmarshal authentik credentials as JSON"
-
-	keyBaseURL = "url"
-	keyToken   = "token"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
@@ -86,9 +88,12 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			fmt.Sprintf("%s=%s", "HASHICUPS_PASSWORD", authentikCreds["password"]),
 		}*/
 		// set credentials in Terraform provider configuration
-		ps.Configuration = map[string]interface{}{
-			"keyBaseURL": authentikCreds["keyBaseURL"],
-			"keyToken":   authentikCreds["keyToken"],
+		ps.Configuration = map[string]interface{}{}
+		if v, ok := authentikCreds[keyBaseURL]; ok {
+			ps.Configuration[keyBaseURL] = v
+		}
+		if v, ok := authentikCreds[keyToken]; ok {
+			ps.Configuration[keyToken] = v
 		}
 		return ps, nil
 	}
